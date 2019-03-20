@@ -11,6 +11,8 @@
 
 E-Voting is an online voting system, interfaced with a destop application. The E-Voting destop application captures users and contestants details thus making them eligible for voting scheduled at a fixed date. The web interface is used by to monitor the election process and possibly view the results of the election. This system built with C#, uses finger print to authenticate accredited voters.
 
+Preview the desktop demo at :https://e-voting-ng.herokuapp.com/
+
 - [Simple, fast and secured voting](https://e-voting-ng.herokuapp.com).
 - [Effiecient and  Transparent](https://e-voting-ng.herokuapp.com).
 
