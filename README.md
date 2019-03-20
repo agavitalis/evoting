@@ -30,4 +30,4 @@ If you discover a security vulnerability within E-Voting, please send an e-mail 
 
 ## License
 
-The Project  is open-sourced and licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Project  is licensed under the [MIT license](https://opensource.org/licenses/MIT).
