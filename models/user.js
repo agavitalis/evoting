@@ -4,6 +4,7 @@ let schema = mongoose.Schema;
 
 let user_schema = new schema({
 
+    id: String,
     first_name: String,
     last_name: String,
     date_of_birth:{
@@ -17,28 +18,15 @@ let user_schema = new schema({
     email: String,
     password: String,
 
-    biography: {
-        type: String,
-        default: null
-    },
-    profile_picture: {
-        type: String,
-        default: null
-    },
 
-    finger_print: {
-        type: String,
-        default: null
-    },
-
-    created_at: {
+    updated_at: {
         type: Date,
         default: Date.now
     },
 
     role: {
         type: String,
-        default: "user"
+        default: "voter"
     },
 
 

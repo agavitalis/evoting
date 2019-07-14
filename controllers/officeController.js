@@ -2,12 +2,20 @@ var Office = require('../models/office');
 
 //receives the form of created offices
 exports.create_office =  function(req, res, error){
+
+    Office.findOneAndDelete({id : req.body.id}, function(err, res){
+        if(err){ 
+            console.log(err)
+        }else{
+            console.log(res)
+        }  
+    })
   
     var new_office = new Office({
        
         office_name : req.body.office_name,
         office_description : req.body.office_description,
-        office_image : req.body.office_image,
+        organization : req.body.organization,
         created_at : req.body.created_at,
 
     })
@@ -23,7 +31,7 @@ exports.create_office =  function(req, res, error){
             res.send({
                 status: 200,
                 success: true,
-                message: "Office successfully created",
+                message: "Office successfully created"
             })
         }
 

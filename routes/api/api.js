@@ -20,21 +20,49 @@ var voteController = require('../../controllers/voteController');
 var partyController = require('../../controllers/partyController');
 var officeController = require('../../controllers/officeController');
 var contestantController = require('../../controllers/contestantController');
+var organizationController = require('../../controllers/organizationController');
 var certifiedPartyController = require('../../controllers/certifiedPartyController');
 
 
 //accepts routes, and returns the appropriate controller
 router.post('/api/register', registerController.register_user);
-router.post('/api/login', loginController.login_user);
 
-router.post('/api/year',verifyUser.checkToken, yearController.create_year);
-router.post('/api/vote', verifyUser.checkToken, voteController.create_vote);
-router.post('/api/party', verifyUser.checkToken, partyController.create_party);
-router.post('/api/office', verifyUser.checkToken, officeController.create_office);
-router.post('/api/contestant', verifyUser.checkToken, contestantController.create_contestant);
+router.route('/api/login')
+  .get(function (req, res) {
+    res.render('login');
+  })
+  .post(loginController.login_user)
+
+router.post('/api/year', yearController.create_year);
+router.post('/api/vote',  voteController.create_vote);
+router.post('/api/party', partyController.create_party);
+router.post('/api/office', officeController.create_office);
+router.post('/api/contestant', contestantController.create_contestant);
+router.post('/api/organization', organizationController.create_organization);
+
+//An authenticated route
 router.post('/api/certified_party',verifyUser.checkToken, certifiedPartyController.create_certifiedParty);
 
+//Dashboard routes
+router.route('/dashboard')
+    .get(function (req, res) {
+        res.render('dashboard/dashboard');
+    })
 
+router.route('/organization')
+    .get(function (req, res) {
+        res.render('dashboard/organization');
+    })
+    
+router.route('/office')
+.get(function (req, res) {
+    res.render('dashboard/office');
+})
+  
+router.route('/result')
+.get(function (req, res) {
+    res.render('dashboard/result');
+})
 
 //then we will now export this routes to the index file
 module.exports = router;

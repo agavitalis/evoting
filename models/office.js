@@ -6,8 +6,8 @@ let office_schema = new schema({
 
     office_name: String,
     office_description: String,
-
-    office_image:String,
+    
+    organization:String,
     created_at: {
         type: Date,
         default: Date.now

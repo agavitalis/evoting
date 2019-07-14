@@ -4,14 +4,15 @@ var Contestant = require('../models/contestant');
 exports.create_contestant =  function(req, res, error){
   
     var new_contestant = new Contestant({
-       
-        user_id : req.body.user_id,
-        party_id : req.body.party_id,
-        office_id : req.body.office_id,
-        year_id : req.body.year_id,
-        created_at : req.body.created_at,
-
+        id:req.body.user,
+        user : req.body.user,
+        party : req.body.party,
+        office : req.body.office,
+        year : req.body.year,
+        
     })
+
+   
 
     new_contestant.save(function(error){
         if (error) {

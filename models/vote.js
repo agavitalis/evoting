@@ -3,11 +3,14 @@ let schema = mongoose.Schema;
 
 let vote_schema = new schema({
 
+    id: Number,
     user_id: String,
+    contestant_id: String,
     party_id: String,
     
     office_id:String,
     year_id:String,
+    organization_code: String,
 
     created_at: {
         type: Date,
@@ -16,6 +19,8 @@ let vote_schema = new schema({
 
 
 })
+
+
 
 
 //now we create the model using the above schema

@@ -4,6 +4,7 @@ let schema = mongoose.Schema;
 
 let party_schema = new schema({
 
+    id: String,
     party_name: String,
     party_logo: String,
 
@@ -11,7 +12,8 @@ let party_schema = new schema({
     party_vision:String,
 
     party_mission: String,
-    created_at: {
+    certified: String,
+    updated_at: {
         type: Date,
         default: Date.now
     }
@@ -22,3 +24,5 @@ let party_schema = new schema({
 var parties = mongoose.model("parties", party_schema);
 //export the model so that it can be used else where
 module.exports = parties;
+
+

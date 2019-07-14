@@ -18,20 +18,19 @@ var routes = require( './routes/api/api.js');
  
 //lets use the files we have required, we use express first, since it is our server
 const app = express();
+//setup the views
+app.set('view engine', 'ejs');
 app.use(morgan('combined'));
+app.use(body_parser.urlencoded({extended:false}))
 app.use(body_parser.json());
-app.use(cors({credentials:true,origin:'http://localhost:5000'}));
+app.use(cors({credentials:true,origin:'http://localhost:5000/api/'}));
 
-
+//server static files
+app.use(express.static('public'))
 
 //I captured the landing route here
 app.get('/', function(req, res, next){
-    res.send({
-        success: true,
-        status: 200,
-        response: "Welcome to e-voting API",
-    });
-  
+    res.render('index');
 });
 
 //tI used the other routes here

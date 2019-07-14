@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 let schema = mongoose.Schema;
 
 let contestant_schema = new schema({
-
-    user_id: String,
-    party_id: String,
+    id: String,
+    user: String,
+    party: String,
     
-    office_id:String,
-    year_id:String,
+    office:String,
+    year:String,
 
     created_at: {
         type: Date,
