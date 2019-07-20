@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eVote | Dashboard</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="/css/styles.css" rel="stylesheet">
-</head>
+            <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <meta name="description" content="">
+                <title>eVote | Dashboard</title>
+                <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
+            
+                <!-- Bootstrap core CSS -->
+                <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            
+                <!-- Custom styles for this template -->
+                <link href="/css/styles.css" rel="stylesheet">
+            </head>
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-1 shadow">
@@ -100,24 +100,28 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Nuesa</td>
-                            <td>President</td>
-                            <td><button class="btn btn-flat btn-info">View</button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Nuesa</td>
-                            <td>Vice President</td>
-                            <td><button class="btn btn-flat btn-info">View</button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td><button class="btn btn-flat btn-info">View</button></td>
-                          </tr>
+                               
+                       
+                        
+                        <% selected_offices.forEach(function(office){ %>
+                            <tr>
+                            <th scope="row"><%= office.id %></th>
+                            <td><%= selected_organization %></td>
+                            <td><%= office.office_name %></td>
+                            <td>
+                                <form action="result" method="post">
+                                    <input type="hidden" name="office_id" value="<%= office.id %>">
+                                    <input type="hidden" name="office_name" value ="<%= office.name %>">
+                                    <input type="hidden" name="org_code" value ="<%= organization_code %>">
+                                    <button class="btn btn-flat btn-info">View</button></td>
+                                </form>
+                                
+                            </tr>
+                        <% }); %>
+                                        
+                                       
+                                   
+                          
                         </tbody>
                       </table>
                 </div>

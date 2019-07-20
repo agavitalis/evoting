@@ -22,6 +22,7 @@ var officeController = require('../../controllers/officeController');
 var contestantController = require('../../controllers/contestantController');
 var organizationController = require('../../controllers/organizationController');
 var certifiedPartyController = require('../../controllers/certifiedPartyController');
+var dashboardController = require('../../controllers/dashboardController');
 
 
 //accepts routes, and returns the appropriate controller
@@ -47,22 +48,10 @@ router.post('/api/certified_party',verifyUser.checkToken, certifiedPartyControll
 router.route('/dashboard')
     .get(function (req, res) {
         res.render('dashboard/dashboard');
-    })
+})
 
-router.route('/organization')
-    .get(function (req, res) {
-        res.render('dashboard/organization');
-    })
-    
-router.route('/office')
-.get(function (req, res) {
-    res.render('dashboard/office');
-})
-  
-router.route('/result')
-.get(function (req, res) {
-    res.render('dashboard/result');
-})
+router.use('/organization',dashboardController.organization)
+router.use('/result', dashboardController.result)
 
 //then we will now export this routes to the index file
 module.exports = router;

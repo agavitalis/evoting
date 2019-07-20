@@ -4,7 +4,7 @@ let schema = mongoose.Schema;
 
 let organization_schema = new schema({
 
-    id: Number,
+    id: String,
     organization_name: String,
     organization_code: String,
     

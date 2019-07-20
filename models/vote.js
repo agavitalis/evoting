@@ -3,7 +3,7 @@ let schema = mongoose.Schema;
 
 let vote_schema = new schema({
 
-    id: Number,
+    id: String,
     user_id: String,
     contestant_id: String,
     party_id: String,

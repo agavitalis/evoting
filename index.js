@@ -2,6 +2,9 @@
 // firstly I required express
 var express = require('express')
 
+//Require express session
+var session = require('express-session');
+
 //I require our middleware for forms
 var body_parser = require('body-parser')
 
@@ -18,6 +21,7 @@ var routes = require( './routes/api/api.js');
  
 //lets use the files we have required, we use express first, since it is our server
 const app = express();
+app.use(session({secret: 'evote',saveUninitialized: true,resave: true}));
 //setup the views
 app.set('view engine', 'ejs');
 app.use(morgan('combined'));

@@ -12,7 +12,8 @@ exports.create_office =  function(req, res, error){
     })
   
     var new_office = new Office({
-       
+        
+        id : req.body.id,
         office_name : req.body.office_name,
         office_description : req.body.office_description,
         organization : req.body.organization,

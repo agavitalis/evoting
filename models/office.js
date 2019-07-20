@@ -2,11 +2,11 @@
 var  mongoose = require('mongoose');
 let schema = mongoose.Schema;
 
-let office_schema = new schema({
-
+let office_schema = new schema({ 
+    
+    id: String,
     office_name: String,
     office_description: String,
-    
     organization:String,
     created_at: {
         type: Date,
