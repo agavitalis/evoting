@@ -69,24 +69,24 @@ exports.result = async function (req, res, error) {
          const selected_contestants = contestants.filter(contestant => contestant.office == req.body.office_id);
          //work on these selected contestants
          var resultn = []
-         selected_contestants.forEach( (contestanttt) => {
+         selected_contestants.forEach((contestanttt) => {
             var contestant_object = {}
-            Vote.find({contestant_id: contestanttt.id, office_id: req.body.office_id, organization_code : req.body.org_code  }).exec().then(function(count){
-               
+            Vote.find({ contestant_id: contestanttt.id, office_id: req.body.office_id, organization_code: req.body.org_code }).exec().then(function (count) {
+
                contestanttt.party.forEach(party => {
                   contestant_object.party = party.party_name;
                });
-               
+
                contestant_object.contestant = contestanttt.id;
                contestant_object.votes = count.length
-               
+
                resultn.push(contestant_object)
             })
-   
+
          })
-           
-         setTimeout(function(){ res.render("dashboard/result",{resultn})}, 5000);
-         
+
+         setTimeout(function () { res.render("dashboard/result", { resultn }) }, 5000);
+
       })
    }
 }
